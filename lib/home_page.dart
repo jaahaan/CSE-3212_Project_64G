@@ -42,65 +42,82 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.purpleAccent,
-                  foregroundColor: Colors.white,
-                  fixedSize: Size(100, 30),
-                  side: BorderSide(),
-                  elevation: 10,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.purpleAccent,
+                    foregroundColor: Colors.white,
+                    fixedSize: Size(100, 30),
+                    side: BorderSide(),
+                    elevation: 10,
+                  ),
+                  child: Text("TextButton"),
                 ),
-                child: Text("TextButton"),
-              ),
-              SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 215, 129, 230),
-                  foregroundColor: Colors.white,
-                  fixedSize: Size(150, 20),
-                  side: BorderSide(),
+                SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 215, 129, 230),
+                    foregroundColor: Colors.white,
+                    fixedSize: Size(150, 20),
+                    side: BorderSide(),
+                  ),
+                  child: Text("ElevatedButton"),
                 ),
-                child: Text("ElevatedButton"),
-              ),
 
-              OutlinedButton(onPressed: () {}, child: Text("OutlinedButton")),
-              IconButton(
-                onPressed: () {},
-                style: IconButton.styleFrom(),
-                icon: Icon(Icons.login),
-              ),
-            ],
-          ),
+                OutlinedButton(onPressed: () {}, child: Text("OutlinedButton")),
+                IconButton(
+                  onPressed: () {},
+                  style: IconButton.styleFrom(),
+                  icon: Icon(Icons.login),
+                ),
+              ],
+            ),
 
-          Container(
-            height: 200,
-            width: 200,
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),
-            alignment: Alignment.bottomRight,
-            decoration: BoxDecoration(
-              // color: const Color.fromARGB(255, 225, 174, 235),
-              border: Border.all(width: 5, color: Colors.lightBlue),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              // shape: BoxShape.circle,
-              gradient: RadialGradient(
-                colors: [
-                  Colors.purple,
-                  const Color.fromARGB(255, 232, 167, 243),
-                ],
+            Container(
+              height: 200,
+              width: 200,
+              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.all(20),
+              alignment: Alignment.bottomRight,
+              decoration: BoxDecoration(
+                // color: const Color.fromARGB(255, 225, 174, 235),
+                border: Border.all(width: 5, color: Colors.lightBlue),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                // shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.purple,
+                    const Color.fromARGB(255, 232, 167, 243),
+                  ],
+                ),
+              ),
+              child: Text("Hello Container"),
+            ),
+
+            SizedBox(
+              height: 200,
+              width: 200,
+              child: Card(
+                color: Colors.purple,
+                shadowColor: Colors.purple,
+                elevation: 10,
+                shape: BeveledRectangleBorder(),
+                child: Center(child: Text("Hello Card")),
               ),
             ),
-            child: Text("Hello Container"),
-          ),
-        ],
+
+            Image.asset('assets/images/flutter.png', height: 300, width: 300),
+            Image.network('/assets/images/flutter.png'),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
