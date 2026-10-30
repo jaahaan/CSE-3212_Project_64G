@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_64g/random.dart';
 import 'package:project_64g/widgets/input_field.dart';
 
 class CalculatorPage extends StatefulWidget {
@@ -71,6 +72,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
                           String num1 = controller1.text;
                           String num2 = controller2.text;
                           result = double.parse(num1) + double.parse(num2);
+                          ScaffoldMessenger.of(
+                            context,
+                          ).showSnackBar(SnackBar(content: Text("Hello")));
                           setState(() {});
                         }
                       },
@@ -78,6 +82,17 @@ class _CalculatorPageState extends State<CalculatorPage> {
                     ),
                     SizedBox(height: 20),
                     Text("Answer: $result"),
+
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => Random()),
+                          (route) => false,
+                        );
+                      },
+                      child: Text("Random"),
+                    ),
                   ],
                 ),
               ),

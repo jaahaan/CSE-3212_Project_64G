@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_64g/calculator_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,7 +31,19 @@ class HomePage extends StatelessWidget {
               hoverColor: Colors.pink[100],
               onTap: () {},
             ),
-            // Divider(),
+            Divider(),
+            ListTile(
+              title: Text("Calculator"),
+              leading: Icon(Icons.home),
+              hoverColor: Colors.pink[100],
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CalculatorPage()),
+                );
+              },
+            ),
             Spacer(),
             ListTile(
               title: Text("Profile"),
@@ -50,19 +63,28 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CalculatorPage()),
+                    );
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.purpleAccent,
                     foregroundColor: Colors.white,
-                    fixedSize: Size(100, 30),
+                    fixedSize: Size(150, 30),
                     side: BorderSide(),
                     elevation: 10,
                   ),
-                  child: Text("TextButton"),
+                  child: Text("Calculator Page"),
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Elevated Button Pressed")),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 215, 129, 230),
                     foregroundColor: Colors.white,
